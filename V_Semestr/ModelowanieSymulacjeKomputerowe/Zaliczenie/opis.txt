@@ -1,0 +1,37 @@
+Czas przygotowania obiadu
+
+Etap 1) Sprawdzenie czy potrzebne naczynia są czyste
+	-tak
+	-nie(muszę pozmywać)
+	rozkład dyskretny
+	
+Etap 2) Czy mam potrzene składniki
+	-tak
+	-nie(idę do sklepu)
+	rozkład bernoulliego
+	
+Etap 3) Czy są kolejki w sklepie
+	-tak
+	-nie
+	rozkład normalny
+	
+Etap 4) Zagotowanie wody na makaron
+	-poziom ognia 3
+	-poziom ognia 7
+	-poziom ognia maksymalny
+	rozkład dyskretny
+
+
+Etap 5) Przyrządzenie składników potrzebych do potrawy
+
+	- samemu(krojenie,gotowanie itp)
+	- odgrzanie jedzenia z słoika od mamy
+	rozkład bernoulliego
+	
+Etap 6) Sprzatanie
+	- nie sprzątam
+	- umieszcznie brudnych naczyń do zmywarki
+	- zmywanie ręczne
+	rozkład dyskretny
+	
+	

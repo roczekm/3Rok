@@ -1,0 +1,15 @@
+0. ls -l /tmp | cut -d ' ' -f3
+1.join plik1.txt plik2.txt
+2.join -e X plik1.txt plik2.txt
+3.join <(sort plik3.txt) plik1.txt
+4.join plik1.txt <(join plik2.txt plik4.txt)
+5.grep anna imiona.txt | wc -w 
+6.grep -i anna imiona.txt | wc -w 
+7.grep -e anna -e ALA imiona.txt
+8.grep anna imiona2.txt
+9.grep 'a$' imiona2.txt
+10.grep '[wrtpsdfghjklzcbnm]$' imiona2.txt
+11.grep "^....t$" corncob_lowercase.txt
+12.grep "^p" corncob_lowercase.txt
+13.grep "^p.....$" corncob_lowercase.txt
+14.grep '^..e.*y$' corncob_lowercase.txt

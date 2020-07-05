@@ -1,0 +1,53 @@
+// Block definition (there may be more than one block per file)
+FUNCTION_BLOCK test
+// Define input variables
+VAR_INPUT
+	predkosc : REAL;
+	widocznosc : REAL;
+END_VAR
+
+// Define output variable
+VAR_OUTPUT
+	wypadek : REAL;
+END_VAR
+
+FUZZIFY predkosc
+	TERM mala := (10, 1) (20, 1) (40, 0) ;
+	TERM srednia := (35, 0) (70,1) (90,0) ;
+	TERM szybko := (85, 0) (120, 1) (160, 0);
+	TERM bardzo_szybko := (155, 0) (180, 1) (200, 1);
+END_FUZZIFY
+
+FUZZIFY widocznosc
+	TERM bardzo_slaba := (0.05, 1) (0.1, 1) (0.2, 0) ;
+	TERM srednia := (0.15, 1) (0.5,1) (1,0) ;
+	TERM dobra := (0.9, 0) (3, 1) (4, 1);
+END_FUZZIFY
+
+DEFUZZIFY wypadek
+	TERM bardzo_male := (0, 1) (0.1, 1) (0.25,0);
+	TERM male := (0.2,0) (0.3,1) (0.5, 0) ;
+	TERM srednie := (0.45, 0) (0.62, 1) (0.75, 0);
+	TERM duze := (0.72, 0) (0.84, 1) (1, 1);
+	
+
+
+	METHOD : COG;
+
+	DEFAULT := 0;
+END_DEFUZZIFY
+RULEBLOCK No1
+
+	AND : MIN;
+	ACT : MIN;
+	ACCU : MAX; 
+	
+	RULE 1 : IF predkosc IS mala AND widocznosc IS dobra THEN wypadek IS bardzo_male;
+	RULE 2 : IF predkosc IS mala AND widocznosc IS bardzo_slaba THEN wypadek IS male;
+	RULE 3 : IF predkosc IS srednia AND widocznosc IS srednia THEN wypadek IS male;
+	RULE 4 : IF predkosc IS szybko AND widocznosc IS srednia THEN wypadek IS srednie;
+	RULE 5 : IF predkosc IS bardzo_szybko AND widocznosc IS dobra THEN wypadek IS male;
+	RULE 6 : IF predkosc IS bardzo_szybko AND widocznosc IS bardzo_slaba THEN wypadek IS duze;
+	
+END_RULEBLOCK
+END_FUNCTION_BLOCK

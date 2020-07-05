@@ -1,0 +1,54 @@
+// Block definition (there may be more than one block per file)
+FUNCTION_BLOCK test
+// Define input variables
+VAR_INPUT
+	temperatura_out : REAL;
+	temperatura_in : REAL;
+END_VAR
+
+// Define output variable
+VAR_OUTPUT
+	klima : REAL;
+END_VAR
+
+FUZZIFY temperatura_out
+	TERM zimno := (-20, 1) (-10, 1) (0, 0) ;
+	TERM chlodno := (-5, 1) (0,1) (10,0) ;
+	TERM umiarkowanie := (10, 1) (15, 1) (20, 0);
+	TERM cieplo := (20, 1) (25, 1) (30, 0);
+	TERM goraco := (25, 0) (35, 1) (40, 1);
+END_FUZZIFY
+
+FUZZIFY temperatura_in
+	TERM zimno := (12, 1) (15, 1) (17, 0) ;
+	TERM chlodno := (16, 1) (18,1) (19,0) ;
+	TERM umiarkowanie := (19, 1) (20, 1) (21, 0);
+	TERM cieplo := (21, 1) (23, 1) (24, 0);
+	TERM goraco := (22, 0) (26, 1) (27, 1);
+END_FUZZIFY
+
+DEFUZZIFY klima
+	TERM COOL := (100, 1) (150, 1) (200,0);
+	TERM COOL2 := (150,1) (200,1) (250, 0) ;
+	TERM OFF := (0, 1) (50, 1) (100, 0);
+	TERM HEAT := (250, 1) (300, 1) (400, 0);
+	TERM HEAT2 := (400, 1) (450, 1) (500, 0);
+
+
+	METHOD : COG;
+
+	DEFAULT := 0;
+END_DEFUZZIFY
+RULEBLOCK No1
+
+	AND : MIN;
+	ACT : MIN;
+	ACCU : MAX; 
+	
+	RULE 1 : IF temperatura_in IS zimno AND temperatura_out IS zimno THEN klima IS HEAT2;
+	RULE 2 : IF temperatura_in IS chlodno AND temperatura_out IS chlodno THEN klima IS HEAT;
+	RULE 3 : IF temperatura_in IS umiarkowanie AND temperatura_out IS umiarkowanie THEN klima IS OFF;
+	RULE 4 : IF temperatura_in IS cieplo AND temperatura_out IS cieplo THEN klima IS COOL; 
+	RULE 5 : IF temperatura_in IS goraco AND temperatura_out IS goraco THEN klima IS COOL2;
+END_RULEBLOCK
+END_FUNCTION_BLOCK

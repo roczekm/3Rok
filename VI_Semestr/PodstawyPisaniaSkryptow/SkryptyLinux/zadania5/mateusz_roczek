@@ -1,0 +1,20 @@
+1.a)gawk '{print $3}' zdania.txt
+b)gawk '{print $1,$3}' zdania.txt
+c)gawk '{print $1"-"$3}' zdania.txt
+d)gawk '{toupper($0)' zdania.txt
+e)gawk '{print $0"."}' zdania.txt
+2.gawk '{print toupper($2),$1}' imiona_nazwiska.txt
+3.gawk '{print NR".",$0}' imiona_nazwiska.txt
+4.gawk 'BEGIN{print "poczatek pliku"}{print $0}END{print "koniec"}' imiona_nazwiska.txt
+5.gawk -F":" '{print $4|"sort -nu"}' /etc/passwd
+6.gawk '{print $1,$NF}' zdania2.txt
+7.gawk '{print $0}' RS=' ' zdania2.txt
+8.gawk 'NF>3 {print $0}' zdania2.txt
+9.gawk 'NR%2 {print $0}' zdania2.txt
+10.a)gawk -F"," '/roman/ {print $0}' dlug.txt
+b)gawk -F"," '$1~/roman/ {print $0}' dlug.txt
+c)gawk -F"," '$2~/roman/ {print $1}' dlug.txt
+d)gawk -F"," '$1=="ala"{dlug+=$3}$2=="ala"{dlug-=$3}END{print dlug}' dlug.txt
+e)gawk -F"," '$1=="ala"{dlug+=$3}$2=="ala"{dlug-=$3}$1=="ela"{dlug2+=$3}$2=="ela"{dlug2-=$3}END{print "dlug ali wynosi "dlug"\n""dlug eli wynosi "dlug2}' dlug.txt
+11.cut -d ' ' -f 1 daty.txt | gawk -F"." '{print $3"/"$2"/"$1}'
+12.gawk -F"," '/Poland/&&$3>1997{print $2,$3,($4+$5+$6+$7+$8+$9+$10+$11+$12)}' C02.csv

@@ -1,0 +1,15 @@
+1.wc -l pan-tadeusz.txt
+2.head -n 5 pan-tadeusz.txt | tr a-z A-Z
+3.grep -c -e Zosia -e Telimena pan-tadeusz.txt
+4.sed -n 1500,1520p pan-tadeusz.txt
+5.sed '165,170 s/,/!!!/g' pan-tadeusz.txt | sed -n 165,170p
+6.sed -n '/Ubuntu/p' distros.txt
+7.sort -b -k3.7,3.11 -k3.1,3.2 -k3.4,3.5 distros.txt
+8.cut -f 3 distros.txt | gawk -F"/" '{print $3"/"$1"/"$2}'
+9.ls -s -S /usr/lib | head -n 5
+10.uptime | gawk '{print $(NF-1)}'
+11.grep "^r" /etc/passwd
+12.gawk -F"," '/Poland/&&$3~/^"May/ {print $5}' daily-cases-covid-19.csv
+13.gawk -F"," '/Poland/{temp+=$5}END{print temp}' daily-cases-covid-19.csv
+14.gawk -F"," '/Poland/&&$3~/^"Apr/{temp+=$5}END{print temp/30' daily-cases-covid-19.csv
+15.gawk -F"," '$1~/Poland/{Ppolska+=$5}$1~/Germany/{Pniemcy+=$5}$1~/Slovakia/{Pslowacja+=$5}$1~/France/{Pfrancja+=$5}$1~/Spain/{Phiszpania+=$5}BEGIN{print "Stan na 4 maja 2020\nkraj liczba przypadkow"} END{print "Polska "Ppolska"\nNiemcy "Pniemcy"\nSlowacja "Pslowacja,"\nFrancja "Pfrancja,"\nHiszpania "Phiszpania}' daily-cases-covid-19.csv

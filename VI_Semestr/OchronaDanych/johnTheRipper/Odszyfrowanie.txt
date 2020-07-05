@@ -1,0 +1,22 @@
+julian_sitarek1:gandalf:1001:1001:,,,:/home/test1:/bin/bash
+julian_sitarek2:gandalf1:1002:1002:,,,:/home/test2:/bin/bash
+julian_sitarek3:fladnag:1003:1003:,,,:/home/test3:/bin/bash
+julian_sitarek4:gandalF:1004:1004:,,,:/home/test4:/bin/bash
+julian_sitarek6:komputer:1006:1006:,,,:/home/test6:/bin/bash
+eryk_franke1:Kappa:1007:1007:,,,:/home/eryk_franke1:/bin/bash
+michal_gendek1:michal1:1001:1001:,,,:/home/michal_gendek1:/bin/bash
+michal_gendek2:michal2:1002:1002:,,,:/home/michal_gendek2:/bin/bash
+michal_gendek3:michal3:1003:1003:,,,:/home/michal_gendek3:/bin/bash
+michal_gendek4:michal4:1004:1004:,,,:/home/michal_gendek4:/bin/bash
+michal_gendek5:michal5:1005:1005:,,,:/home/michal_gendek5:/bin/bash
+michal_gendek6:michal6:1006:1006:,,,:/home/michal_gendek6:/bin/bash
+piotr_czubak2:iloveyou:1003:1003:,,,:/home/piotr_czubak2:/bin/bash
+piotr_czubak5:123:1006:1006:,,,:/home/piotr_czubak5:/bin/bash
+piotr_czubak6:123:1007:1007:,,,:/home/piotr_czubak6:/bin/bash
+damian_tomaszczyk1:frytki:1001:1001::/home/damian_tomaszczyk1:/bin/bash
+damian_tomaszczyk3:nalesniki:1003:1003::/home/damian_tomaszczyk3:/bin/bash
+damian_tomaszczyk4:pizza:1004:1004::/home/damian_tomaszczyk4:/bin/bash
+DamianAndrysiak1:1234:1000:1000::/home/DamianAndrysiak1:/bin/sh
+DamianAndrysiak2:22:1001:1001::/home/DamianAndrysiak2:/bin/sh
+
+20 password hashes cracked, 88 left

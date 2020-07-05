@@ -1,0 +1,47 @@
+FUNCTION_BLOCK tipper	// Block definition (there may be more than one block per file)
+
+VAR_INPUT	
+	odleglosc : REAL;
+END_VAR
+
+VAR_OUTPUT				// Define output variable
+	dystans : REAL;
+	predkosc : REAL;
+END_VAR
+
+
+FUZZIFY odleglosc	
+	TERM mala := (0, 1) (100, 1) (210,0) ;
+	TERM sredna := (190, 0) (300, 1) (410,0) ;
+	TERM duza := (390,0) (500,1) (600,1);
+END_FUZZIFY
+
+DEFUZZIFY dystans			
+	TERM maly := (0, 1) (100, 1) (210,0) ;
+	TERM sredni := (190, 0) (300, 1) (410,0) ;
+	TERM duzy := (390,0) (500,1) (600,1);
+	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
+	DEFAULT := 0;		// Default value is 0 (if no rule activates defuzzifier)
+END_DEFUZZIFY
+
+DEFUZZIFY predkosc			
+	TERM mala := (10, 1) (20, 1) (40, 0) ;
+	TERM srednia := (35, 0) (70,1) (90,0) ;
+	TERM szybko := (85, 0) (120, 1) (160, 1);
+	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
+	DEFAULT := 0;		// Default value is 0 (if no rule activates defuzzifier)
+END_DEFUZZIFY
+
+RULEBLOCK No1
+	AND : MIN;			// Use 'min' for 'and' (also implicit use 'max' for 'or' to fulfill DeMorgan's Law)
+	ACT : MIN;			// Use 'min' activation method
+	ACCU : MAX;			// Use 'max' accumulation method
+
+	RULE 1 : IF odleglosc IS mala THEN dystans IS maly AND	predkosc is mala;
+	RULE 2 : IF odleglosc IS srednia THEN dystans IS sredni AND predkosc is srednia; 
+	RULE 3 : IF odleglosc IS duza THEN dystans IS duzy AND predkosc is szybko;
+	
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK
+

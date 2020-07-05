@@ -1,0 +1,14 @@
+1.grep -ow '4,14,19' dl.txt | wc -l
+2.sed -n 100,110p corncob_lowercase.txt
+3.sed 's/ma/nie ma/' plik.txt
+4.sed '1 s/ma/nie ma/' plik.txt
+5.sed 's/$/./' plik.txt
+6.echo "Ala ma kota" | sed -e 's/Ala/Ania/' -e 's/ma/nie ma/'
+7.ls -d /usr/bin/* | sed 's\/usr/bin/\\' |tail -n 2
+8.sed 's/,/./g' dane.txt
+9.sed '1 s/,/./g' dane.txt
+10.sed '1,2 s/,/./g' dane.txt
+11.cat dane1.txt | sed -f foo.sed
+foo.sed:
+s/,/./g
+/^$/d
